@@ -1,7 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """ISO 286 公差配合计算：尺寸段 × IT 等级 → 标准公差；字母偏差 → 上下偏差。
 支持常用配合（H7/g6、H7/k6、H7/s6、F8/h6 等）与任意"基本尺寸+公差带"组合。
 """
+from __future__ import annotations
+
 import json
 
 # 尺寸段（mm）：每段取上限
