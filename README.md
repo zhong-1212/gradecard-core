@@ -17,7 +17,8 @@
 ## 快速上手
 
 ```bash
-pip install gradecard-core
+# PyPI 尚未发布；目前从仓库直接安装（需 git）：
+pip install "git+https://github.com/zhong-1212/gradecard-core.git"
 ```
 
 ```python
