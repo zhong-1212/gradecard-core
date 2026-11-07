@@ -7,10 +7,19 @@ on:
 
 jobs:
   pytest:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.9", "3.11", "3.13"]
+        include:
+          # ubuntu-latest 已升至 26.04，官方 python-versions 不再提供 3.9 构建，
+          # 故把 3.9 固定在仍提供 3.9 的 22.04 上，保证 requires-python=">=3.9" 的声明可被验证。
+          - python-version: "3.9"
+            os: ubuntu-22.04
+          - python-version: "3.11"
+            os: ubuntu-latest
+          - python-version: "3.13"
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
